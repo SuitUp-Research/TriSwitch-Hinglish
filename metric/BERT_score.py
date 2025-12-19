@@ -5,7 +5,7 @@ from bert_score import score
 
 
 def main():
-    csv_path = Path(__file__).resolve().parent.parent / "marian_triswitch_outputs.csv"
+    csv_path = Path(__file__).resolve().parent.parent / "final_results" /"marian_triswitch_outputs.csv"
     if not csv_path.exists():
         print(f"ERROR: could not find CSV at {csv_path}")
         sys.exit(1)
@@ -22,7 +22,7 @@ def main():
         verbose=True,
     )
 
-    print("BERTScore F1 (avg):", float(F1.mean()))
+    print("BERTScore F1 (avg):", F1.mean().item())
 
 
 if __name__ == "__main__":
